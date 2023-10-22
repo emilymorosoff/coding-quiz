@@ -11,3 +11,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
