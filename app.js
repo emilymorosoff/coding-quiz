@@ -18,6 +18,8 @@ function fetchQuestions (){
     .then (function (data) {
         questions = shuffleArray (data.questions).slice(0, 10)
         renderQuestion()
+        timerEl.textContent = remainingTime
+        countDown ()
     }
     )
 }
@@ -52,7 +54,17 @@ function renderQuestion() {
         questionContainer.appendChild(nextButton)
 }
 
-
+function countDown() {
+    if (remainingTime > 0) {
+        timerId = setInterval(function(){
+            remainingTime = remainingTime - 1
+            timerEl.textContent = remainingTime
+            if (remainingTime <= 0) {
+                clearInterval (timerId)
+            }
+        }, 1000)
+    }
+}
 /* function shuffleArray(arr) {
 for (let i = arr.length - 1; i > 0; i--) {
 const j = Math.floor(Math.random() * (i + 1));
