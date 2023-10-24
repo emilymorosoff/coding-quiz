@@ -46,7 +46,12 @@ function renderQuestion() {
         )
         questionContainer.appendChild(questionEl) 
         questionContainer.appendChild(optionsElement)
+        const nextButton = document.createElement("button")
+        nextButton.textContent = "next"
+        nextButton.classList.add("next-button")
+        questionContainer.appendChild(nextButton)
 }
+
 
 /* function shuffleArray(arr) {
 for (let i = arr.length - 1; i > 0; i--) {

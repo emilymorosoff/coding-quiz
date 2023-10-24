@@ -89,3 +89,14 @@ h1 {
     width: 60%;
     text-align: left;
 }
+
+.next-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    margin: 30px auto 0;
+    display: block;
+}
