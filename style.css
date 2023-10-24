@@ -28,7 +28,7 @@ h1 {
 
 }
 .question-container {
-    background-color: rgba (255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     width: 90%;
     max-width: 600px;
     min-height: 50vh;
@@ -57,4 +57,35 @@ h1 {
     right: 15px;
     color: #fff;
 
+}
+
+.question-element {
+    margin-bottom: 10px;
+}
+
+.question-element h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.question-element p {
+    font-size: 1.5 rem;
+    font-weight: bold;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options-container button {
+    background-color: #351c75;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    text-align: left;
 }

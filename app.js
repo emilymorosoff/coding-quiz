@@ -35,7 +35,7 @@ function renderQuestion() {
     questionEl.appendChild (questionNumberElement)
     questionEl.appendChild (questionTextElement)
     const optionsElement = document.createElement("div")
-    optionsElement.classList.add = ("options-container")
+    optionsElement.classList.add ("options-container")
     options.forEach(function (option,index){
         const optionElement = document.createElement ("button")
         optionElement.textContent = index + 1 + ". " + option 
@@ -44,6 +44,7 @@ function renderQuestion() {
     }
         )
         questionContainer.appendChild(questionEl) 
+        questionContainer.appendChild(optionsElement)
 }
 
 /* function shuffleArray(arr) {
