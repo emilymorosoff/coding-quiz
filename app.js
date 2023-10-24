@@ -43,6 +43,7 @@ function renderQuestion() {
         const optionElement = document.createElement ("button")
         optionElement.textContent = optionLetters[index] + ". " + option 
         optionElement.id = index
+        optionElement.addEventListener("click", checkAnswer)
         optionsElement.appendChild(optionElement)
     }
         )
@@ -54,7 +55,26 @@ function renderQuestion() {
         questionContainer.appendChild(nextButton)
 }
 
-function countDown() {
+function checkAnswer(event) {
+    isAnswered = true
+    const id = Number(event.target.getAttribute("id"))
+    event.target.style.backgroundColor = "#6142a3"
+    event.target.parentElement.replaceWith(event.target.parentElement.cloneNode(true))
+    if (id === questions[currentQuestionIndex].correctAnswer) {
+        totalScore ++
+    }
+    else { 
+        countDown("sub")
+    }
+}
+
+function countDown(sub) {
+    if (sub && remainingTime - 5 >= 0) {
+        remainingTime = remainingTime - 5
+    }
+    else {
+        clearInterval (timerId)
+    }
     if (remainingTime > 0) {
         timerId = setInterval(function(){
             remainingTime = remainingTime - 1
