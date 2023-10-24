@@ -36,9 +36,10 @@ function renderQuestion() {
     questionEl.appendChild (questionTextElement)
     const optionsElement = document.createElement("div")
     optionsElement.classList.add ("options-container")
+    const optionLetters = ["A", "B", "C", "D"]
     options.forEach(function (option,index){
         const optionElement = document.createElement ("button")
-        optionElement.textContent = index + 1 + ". " + option 
+        optionElement.textContent = optionLetters[index] + ". " + option 
         optionElement.id = index
         optionsElement.appendChild(optionElement)
     }
