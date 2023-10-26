@@ -1,7 +1,10 @@
 const questionContainer = document.querySelector(".question-container");
 const timeContainer = document.querySelector(".time-container");
 const timerEl = document.querySelector(".time");
-const startButton = document.querySelector(".start-button")
+const startButton = document.querySelector(".start-button");
+const highScoresEl = document.querySelector(".high-scores");
+const highScoresButton = document.querySelector(".high-scores-button");
+
 let questions = [];
 let currentQuestionIndex = 0;
 let remainingTime = 60;
@@ -14,6 +17,7 @@ function start() {
 if (startButton) {
     startButton.parentElement.remove()
 }
+highScoresButton.addEventListener("click", displayHighScores);
 function fetchQuestions() {
 fetch("./data.json")
 .then((res) => res.json())
@@ -28,7 +32,7 @@ fetchQuestions();
 
 function renderQuestion() {
 questionContainer.innerHTML = "";
-
+questionContainer.appendChild(highScoresEl);
 questionContainer.appendChild(timeContainer);
 let currentQuestion = questions[currentQuestionIndex];
 const { question, options } = currentQuestion;
@@ -150,6 +154,27 @@ const j = Math.floor(Math.random() * (i + 1));
 return arr;
 }
 
+function displayHighScores(e) {
+    const parentContainer = e.target.parentElement
+    const scoresContainer = document.createElement("ul");
+    const closeButton = document.createElement("button");
+    closeButton.addEventListener("click", function(e){
+        e.target.parentElement.remove();
+    })
+    scoresContainer.classList.add("scores-container");
+    scoresContainer.appendChild(closeButton);
+    highScores.forEach(function(highScore) {
+        const scoreElement = document.createElement("li");
+        const scoreFirstName = highScore.firstName; 
+        const scoreLastName = highScore.lastName;
+        const scoreValue = highScore.score;
+        scoreElement.textContent = scoreFirstName + " " + scoreLastName + " " + scoreValue;
+        scoresContainer.appendChild(scoreElement);
+    })
+
+    parentContainer.appendChild(scoresContainer);
+    
+}
 function openForm() {
     const saveScoreContainer = document.querySelector(".save-score-overlay");
     const saveScoreForm = saveScoreContainer.querySelector("form");

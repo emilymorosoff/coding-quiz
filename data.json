@@ -237,7 +237,7 @@
     },
     {
     "question": "What is the purpose of the 'splice' method in JavaScript?",
-    "options": ["To add elements to an array", "To remove elements from an array", "To sort an array", "To create a new array"],
+    "options": ["To add elements to an array", "To remove elements from an array", "Both A & B", "All of the above"],
     "correctAnswer": 1
     },
     {
