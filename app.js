@@ -19,6 +19,7 @@ fetch("./data.json")
 .then((data) => {
 questions = shuffleArray(data.questions).slice(0, 10);
 renderQuestion();
+timerEl.textContent = remainingTime;
 countDown();
 });
 }
@@ -114,12 +115,18 @@ gameOver();
 
 function gameOver() {
 setTimeout(() => {
-const nextButton = document.querySelector(".next-button")
+const nextButton = document.querySelector(".next-button");
 if (nextButton) {
     nextButton.remove()
 }
-const currentQuestionElement = document.querySelector(".options-container")
-currentQuestionElement.replaceWith(currentQuestionElement.cloneNode(true))
+
+const resetButton = document.createElement("button");
+resetButton.addEventListener("click", reset);
+resetButton.classList.add("reset-button");
+resetButton.textContent = "reset"
+questionContainer.prepend(resetButton);
+const currentQuestionElement = document.querySelector(".options-container");
+currentQuestionElement.replaceWith(currentQuestionElement.cloneNode(true));
 clearInterval(timerId);
 
 const scoreInfoElement = document.createElement("p");
@@ -140,4 +147,12 @@ const j = Math.floor(Math.random() * (i + 1));
 }
 return arr;
 }
+}
+
+function reset() {
+    questions = [];
+    currentQuestionIndex = 0;
+    remainingTime = 60;
+    totalScore = 0;
+    start();
 }
