@@ -141,3 +141,44 @@ h1 {
     width: 80%;
     margin: 30px auto 0;
 }
+
+.save-score-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.save-score-overlay form {
+    max-width: 400px;
+    background-color: #fff;
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+}
+
+.save-score-overlay form p {
+    text-align: center;
+}
+
+.save-score-overlay form button {
+    display: block;
+    background-color: green;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5 px;
+    width: 50%;
+    margin: 10px auto;
+}

@@ -87,9 +87,6 @@ isAnswered = false;
 if (remainingTime > 0) {
 currentQuestionIndex++;
 renderQuestion();
-} else {
-event.target.replaceWith(event.target.cloneNode(true));
-gameOver();
 }
 }
 }

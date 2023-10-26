@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="start-overlay">
+    <!-- <div class="start-overlay">
         <button class="start-button">Start Quiz</button>
     </div>
+-->
+
     <div class="container">
         <div> 
             <h1>Coding Quiz</h1>
@@ -24,6 +26,23 @@
                 </span>
             </p>
         </div>
+    </div>
+    <div class="save-score-overlay">
+        <form>
+            <button class="close-form">Close</button>
+            <div class="form-group">
+                <label>First Name</label>
+                <input placeholder="Your First Name:">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input placeholder="Your Last Name:">
+            </div>
+            <p>
+                Your score: <span class="score"></span>
+            </p>
+            <button type="submit">Save</button>
+        </form>
     </div>
  <script src="./app.js"></script>
 </body>
