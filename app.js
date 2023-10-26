@@ -8,6 +8,7 @@ let remainingTime = 60;
 let totalScore = 0;
 let timerId;
 let isAnswered = false;
+let highScores = JSON.parse(localStorage.getItem("scores")) || []
 startButton.addEventListener("click", start)
 function start() {
 if (startButton) {
@@ -136,6 +137,7 @@ questionContainer.appendChild(scoreInfoElement);
 const openFormButton = document.createElement("button");
 openFormButton.classList.add("open-form-button");
 openFormButton.textContent = "save my score";
+openFormButton.addEventListener("click", openForm);
 questionContainer.appendChild(openFormButton);
 }, 300);
 }
@@ -146,6 +148,33 @@ const j = Math.floor(Math.random() * (i + 1));
 [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 return arr;
+}
+
+function openForm() {
+    const saveScoreContainer = document.querySelector(".save-score-overlay");
+    const saveScoreForm = saveScoreContainer.querySelector("form");
+    const closeFormButton = saveScoreContainer.querySelector(".close-form");
+    closeFormButton.addEventListener("click", function(e) {
+        e.target.parentElement.parentElement.classList.remove("overlay-active")
+    })
+    saveScoreContainer.classList.add("overlay-active");
+    saveScoreContainer.querySelector(".score").textContent = totalScore;
+    saveScoreForm.addEventListener("submit",function(e) {
+        e.preventDefault()
+        const firstNameInput = saveScoreForm.querySelector("input[name='lastName']");
+        const lastNameInput = saveScoreContainer.querySelector("input[name='lastName']");
+        if (firstNameInput.value && lastNameInput.value) {
+            highScores.push( {
+                firstName: firstNameInput.value, 
+                lastName: lastNameInput.value,
+                score: totalScore,
+            })
+            localStorage.setItem("scores", JSON.stringify(highScores));
+            setTimeout(() => {
+                saveScoreContainer.classList.remove("overlay-active");
+            }, 300);
+        }
+    })
 }
 }
 
