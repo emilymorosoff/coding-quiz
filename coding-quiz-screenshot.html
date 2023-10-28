@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="coding-quiz-screenshot_files/style.css">
+</head>
+<body>
+    
+
+    <div class="container">
+        <div> 
+            <h1>Coding Quiz</h1>
+        </div>
+        <div class="question-container"><div class="high-scores">
+                <button class="high-scores-button">View High Scores</button>
+            </div><p class="time-container">
+                Time: <span class="time">10</span>
+            </p><div class="question-element"><h2>Question: 1</h2><p>What is the primary use of the 'typeof' operator in JavaScript?</p></div><div class="options-container"><button id="0">1. To create a new variable</button><button id="1">2. To check the type of a value or expression</button><button id="2">3. To perform mathematical operations</button><button id="3">4. To add comments to the code</button></div><button class="next-button">next</button></div>
+    </div>
+    <div class="save-score-overlay">
+        <form>
+            <button class="close-form">Close</button>
+            <div class="form-group">
+                <label>First Name</label>
+                <input name="firstName" placeholder="Your First Name:">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input name="lastName" placeholder="Your Last Name:">
+            </div>
+            <p>
+                Your score: <span class="score"></span>
+            </p>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    <audio class="start-sound">
+    <source src="coding-quiz-screenshot_files/starting-sound.wav">
+    </audio>
+    <script src="coding-quiz-screenshot_files/app.js"></script>
+
+    <audio id="startSound" preload="auto" src="coding-quiz-screenshot_files/starting-sound.wav"></audio>
+    <audio id="correctAnswerSound" preload="auto" src="coding-quiz-screenshot_files/correct-answer-sound.wav"></audio>
+    <audio id="incorrectAnswerSound" preload="auto" src="coding-quiz-screenshot_files/incorrect-answer-sound.wav"></audio>
+    <audio id="timerEndSound" preload="auto" src="coding-quiz-screenshot_files/end-of-timer.wav"></audio>
+    <audio id="clickSound" preload="auto" src="coding-quiz-screenshot_files/click-sound.wav"></audio>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

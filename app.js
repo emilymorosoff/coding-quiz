@@ -5,6 +5,7 @@ const startButton = document.querySelector(".start-button");
 const highScoresEl = document.querySelector(".high-scores");
 const highScoresButton = document.querySelector(".high-scores-button");
 
+const startingSound = document.querySelector(".start-sound")
 let questions = [];
 let currentQuestionIndex = 0;
 let remainingTime = 60;
@@ -14,6 +15,7 @@ let isAnswered = false;
 let highScores = JSON.parse(localStorage.getItem("scores")) || []
 startButton.addEventListener("click", start)
 function start() {
+    startingSound.play()
 if (startButton) {
     startButton.parentElement.remove()
 }
@@ -158,6 +160,7 @@ function displayHighScores(e) {
     const parentContainer = e.target.parentElement
     const scoresContainer = document.createElement("ul");
     const closeButton = document.createElement("button");
+    closeButton.textContent = "close"
     closeButton.addEventListener("click", function(e){
         e.target.parentElement.remove();
     })
@@ -173,7 +176,7 @@ function displayHighScores(e) {
     })
 
     parentContainer.appendChild(scoresContainer);
-    
+
 }
 function openForm() {
     const saveScoreContainer = document.querySelector(".save-score-overlay");
@@ -208,5 +211,6 @@ function reset() {
     currentQuestionIndex = 0;
     remainingTime = 60;
     totalScore = 0;
-    start();
+    startSound.play();
+start();
 }

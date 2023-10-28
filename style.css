@@ -71,7 +71,6 @@ h1 {
     color: #b54ce4;
     padding: 2px 3px;
     border: none;
-    font-size: 1.5rem;
 }
 
 .high-scores .scores-container {
@@ -165,10 +164,10 @@ h1 {
     display: block;
     background-color: black;
     color: #fff;
-    padding: 10 px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 80%;
+    width: 50%;
     margin: 30px auto 0;
 }
 
@@ -212,7 +211,19 @@ h1 {
     color: #fff;
     padding: 5px 10px;
     border: none;
-    border-radius: 5 px;
+    border-radius: 5px;
     width: 50%;
     margin: 10px auto;
+}
+
+.reset-button {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    transform: translateX(-50%);
 }
