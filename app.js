@@ -6,12 +6,17 @@ const highScoresEl = document.querySelector(".high-scores");
 const highScoresButton = document.querySelector(".high-scores-button");
 
 const startingSound = document.querySelector(".start-sound")
+const correctAnswerSound = document.querySelector("#correctAnswerSound")
+const incorrectAnswerSound = document.querySelector("#incorrectAnswerSound")
+const clickSound = document.querySelector("#clickSound")
+
 let questions = [];
 let currentQuestionIndex = 0;
 let remainingTime = 60;
 let totalScore = 0;
 let timerId;
 let isAnswered = false;
+let timerId2 
 let highScores = JSON.parse(localStorage.getItem("scores")) || []
 startButton.addEventListener("click", start)
 function start() {
@@ -79,8 +84,10 @@ event.target.parentElement.replaceWith(
 event.target.parentElement.cloneNode(true)
 );
 if (id === questions[currentQuestionIndex].correctAnswer) {
+correctAnswerSound.play()
 totalScore++;
 } else {
+    incorrectAnswerSound.play()
 countDown("sub");
 }
 
@@ -179,16 +186,19 @@ function displayHighScores(e) {
 
 }
 function openForm() {
+    clickSound.play()
     const saveScoreContainer = document.querySelector(".save-score-overlay");
     const saveScoreForm = saveScoreContainer.querySelector("form");
     const closeFormButton = saveScoreContainer.querySelector(".close-form");
     closeFormButton.addEventListener("click", function(e) {
+        clickSound.play()
         e.target.parentElement.parentElement.classList.remove("overlay-active")
     })
     saveScoreContainer.classList.add("overlay-active");
     saveScoreContainer.querySelector(".score").textContent = totalScore;
     saveScoreForm.addEventListener("submit",function(e) {
         e.preventDefault()
+        clickSound.play()
         const firstNameInput = saveScoreForm.querySelector("input[name='lastName']");
         const lastNameInput = saveScoreContainer.querySelector("input[name='lastName']");
         if (firstNameInput.value && lastNameInput.value) {
@@ -207,10 +217,10 @@ function openForm() {
 }
 
 function reset() {
+    clickSound.play()
     questions = [];
     currentQuestionIndex = 0;
     remainingTime = 60;
     totalScore = 0;
-    startSound.play();
-start();
+    setTimeout(start, 1000);
 }

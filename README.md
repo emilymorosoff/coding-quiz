@@ -1,6 +1,6 @@
 # Coding Quiz
 
-![Password Logo](coding-quiz-screenshot.png)
+![Password Logo](.png)
 
 ## 🌟 Welcome to the Coding Quiz 🌟
 Test your coding knowledge with this interactive quiz. Complete the questions within the time limit and see how you stack up against others!
