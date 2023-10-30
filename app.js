@@ -180,7 +180,7 @@ function displayHighScores(e) {
     })
     scoresContainer.classList.add("scores-container");
     scoresContainer.appendChild(closeButton);
-    highScores.forEach(function(highScore) {
+    highScores.slice(highScores.length-5).forEach(function(highScore) {
         const scoreElement = document.createElement("li");
         const scoreFirstName = highScore.firstName; 
         const scoreLastName = highScore.lastName;
@@ -206,7 +206,7 @@ function openForm() {
     saveScoreForm.addEventListener("submit",function(e) {
         e.preventDefault()
         clickSound.play()
-        const firstNameInput = saveScoreForm.querySelector("input[name='lastName']");
+        const firstNameInput = saveScoreForm.querySelector("input[name='firstName']");
         const lastNameInput = saveScoreContainer.querySelector("input[name='lastName']");
         if (firstNameInput.value && lastNameInput.value) {
             highScores.push( {
