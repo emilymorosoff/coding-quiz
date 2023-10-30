@@ -78,19 +78,26 @@ questionContainer.appendChild(nextButton);
 function checkAnswer(event) {
 isAnswered = true;
 const id = Number(event.target.getAttribute("id"));
+const correctAnswerIcon = document.createElement("i")
+correctAnswerIcon.classList.add("fa-check")
+correctAnswerIcon.classList.add("fa-solid")
+const incorrectAnswerIcon = document.createElement("i")
+incorrectAnswerIcon.classList.add("fa-solid")
+incorrectAnswerIcon.classList.add("fa-xmark")
+if (id === questions[currentQuestionIndex].correctAnswer) {
+    event.target.appendChild(correctAnswerIcon)
+correctAnswerSound.play()
+totalScore++;
+} else {
+    event.target.appendChild(incorrectAnswerIcon)
+    incorrectAnswerSound.play()
+countDown("sub");
+}
 
 event.target.style.backgroundColor = "#6142a3";
 event.target.parentElement.replaceWith(
 event.target.parentElement.cloneNode(true)
 );
-if (id === questions[currentQuestionIndex].correctAnswer) {
-correctAnswerSound.play()
-totalScore++;
-} else {
-    incorrectAnswerSound.play()
-countDown("sub");
-}
-
 if (currentQuestionIndex >= 9) {
 gameOver();
 }
